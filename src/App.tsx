@@ -1,18 +1,9 @@
-import { useEffect, useState } from 'react';
-import ReactGA from 'react-ga';
-
+import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    ReactGA.initialize('G-T6RQ7B0X6B');
-
-    ReactGA.set({ page: window.location.pathname });
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
 
   return (
     <div className='App'>
