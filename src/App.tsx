@@ -1,11 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import ReactGA from 'react-ga';
+
 import reactLogo from './assets/react.svg';
 import './App.css';
-import { useGoogleAnalytics } from './useGoogleAnalytics';
 
 function App() {
   const [count, setCount] = useState(0);
-  useGoogleAnalytics('G-T6RQ7B0X6B');
+
+  useEffect(() => {
+    ReactGA.initialize('G-T6RQ7B0X6B');
+
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <div className='App'>
